@@ -1,0 +1,562 @@
+2024-08-01 11:16:05,183 SSD INFO: Using 1 GPUs
+2024-08-01 11:16:05,183 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt=None, output_dir='eval_results', opts=[])
+2024-08-01 11:16:05,183 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-01 11:16:05,184 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-01 11:16:05,184 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-01 11:18:46,240 SSD.inference INFO: No checkpoint found.
+2024-08-01 11:18:46,241 SSD.inference INFO: Evaluating voc_2007_test dataset(4952 images):
+2024-08-01 11:19:18,078 SSD INFO: Using 1 GPUs
+2024-08-01 11:19:18,078 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt='/home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth', output_dir='eval_results', opts=[])
+2024-08-01 11:19:18,078 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-01 11:19:18,078 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-01 11:19:18,078 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-01 11:19:18,911 SSD.inference INFO: Loading checkpoint from /home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth
+2024-08-01 11:19:18,992 SSD.inference INFO: Evaluating voc_2007_test dataset(4952 images):
+2024-08-01 11:27:25,469 SSD INFO: Using 1 GPUs
+2024-08-01 11:27:25,469 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt='/home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth', output_dir='eval_results', opts=[])
+2024-08-01 11:27:25,469 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-01 11:27:25,469 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-01 11:27:25,469 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-01 11:27:26,287 SSD.inference INFO: Loading checkpoint from /home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth
+2024-08-01 11:27:26,372 SSD.inference INFO: Evaluating voc_2007_test dataset(4952 images):
+2024-08-01 11:31:23,995 SSD INFO: Using 1 GPUs
+2024-08-01 11:31:23,995 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt='/home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth', output_dir='eval_results', opts=[])
+2024-08-01 11:31:23,995 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-01 11:31:23,995 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-01 11:31:23,995 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-01 11:31:24,798 SSD.inference INFO: Loading checkpoint from /home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth
+2024-08-01 11:31:24,870 SSD.inference INFO: Evaluating voc_2007_test dataset(4952 images):
+2024-08-01 11:31:54,125 SSD.inference INFO: mAP: 0.7770
+aeroplane       : 0.8114
+bicycle         : 0.8328
+bird            : 0.7566
+boat            : 0.7165
+bottle          : 0.5023
+bus             : 0.8577
+car             : 0.8645
+cat             : 0.8798
+chair           : 0.6185
+cow             : 0.8213
+diningtable     : 0.7704
+dog             : 0.8521
+horse           : 0.8746
+motorbike       : 0.8468
+person          : 0.7929
+pottedplant     : 0.5145
+sheep           : 0.7886
+sofa            : 0.8027
+train           : 0.8665
+tvmonitor       : 0.7706
+
+2024-08-01 12:32:25,451 SSD INFO: Using 1 GPUs
+2024-08-01 12:32:25,451 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt='/home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth', output_dir='eval_results', opts=[])
+2024-08-01 12:32:25,451 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-01 12:32:25,451 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-01 12:32:25,451 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-01 12:32:26,296 SSD.inference INFO: Loading checkpoint from /home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth
+2024-08-01 12:32:26,378 SSD.inference INFO: Evaluating voc_2007_test dataset(4952 images):
+2024-08-01 12:32:55,914 SSD.inference INFO: mAP: 0.7770
+aeroplane       : 0.8114
+bicycle         : 0.8328
+bird            : 0.7566
+boat            : 0.7165
+bottle          : 0.5023
+bus             : 0.8577
+car             : 0.8645
+cat             : 0.8798
+chair           : 0.6185
+cow             : 0.8213
+diningtable     : 0.7704
+dog             : 0.8521
+horse           : 0.8746
+motorbike       : 0.8468
+person          : 0.7929
+pottedplant     : 0.5145
+sheep           : 0.7886
+sofa            : 0.8027
+train           : 0.8665
+tvmonitor       : 0.7706
+
+2024-08-07 15:22:03,275 SSD INFO: Using 1 GPUs
+2024-08-07 15:22:03,275 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt='/home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth', output_dir='eval_results', opts=[])
+2024-08-07 15:22:03,275 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-07 15:22:03,275 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-07 15:22:03,275 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-07 15:22:04,925 SSD.inference INFO: Loading checkpoint from /home/sslunder18/project/benchmark/ssd/SSD/vgg_ssd300_voc0712.pth
+2024-08-07 15:23:48,635 SSD INFO: Using 1 GPUs
+2024-08-07 15:23:48,635 SSD INFO: Namespace(config_file='configs/vgg_ssd300_voc0712.yaml', local_rank=0, ckpt='/home/sslunder18/pretrained/vgg_ssd300_voc0712.pth', output_dir='eval_results', opts=[])
+2024-08-07 15:23:48,635 SSD INFO: Loaded configuration file configs/vgg_ssd300_voc0712.yaml
+2024-08-07 15:23:48,635 SSD INFO: 
+MODEL:
+  NUM_CLASSES: 21
+INPUT:
+  IMAGE_SIZE: 300
+DATASETS:
+  TRAIN: ("voc_2007_trainval", "voc_2012_trainval")
+  TEST: ("voc_2007_test", )
+SOLVER:
+  MAX_ITER: 120000
+  LR_STEPS: [80000, 100000]
+  GAMMA: 0.1
+  BATCH_SIZE: 32
+  LR: 1e-3
+
+OUTPUT_DIR: 'outputs/vgg_ssd300_voc0712'
+2024-08-07 15:23:48,635 SSD INFO: Running with config:
+DATASETS:
+  TEST: ('voc_2007_test',)
+  TRAIN: ('voc_2007_trainval', 'voc_2012_trainval')
+DATA_LOADER:
+  NUM_WORKERS: 8
+  PIN_MEMORY: True
+INPUT:
+  IMAGE_SIZE: 300
+  PIXEL_MEAN: [123, 117, 104]
+MODEL:
+  BACKBONE:
+    NAME: vgg
+    OUT_CHANNELS: (512, 1024, 512, 256, 256, 256)
+    PRETRAINED: True
+  BOX_HEAD:
+    NAME: SSDBoxHead
+    PREDICTOR: SSDBoxPredictor
+  CENTER_VARIANCE: 0.1
+  DEVICE: cuda
+  META_ARCHITECTURE: SSDDetector
+  NEG_POS_RATIO: 3
+  NUM_CLASSES: 21
+  PRIORS:
+    ASPECT_RATIOS: [[2], [2, 3], [2, 3], [2, 3], [2], [2]]
+    BOXES_PER_LOCATION: [4, 6, 6, 6, 4, 4]
+    CLIP: True
+    FEATURE_MAPS: [38, 19, 10, 5, 3, 1]
+    MAX_SIZES: [60, 111, 162, 213, 264, 315]
+    MIN_SIZES: [30, 60, 111, 162, 213, 264]
+    STRIDES: [8, 16, 32, 64, 100, 300]
+  SIZE_VARIANCE: 0.2
+  THRESHOLD: 0.5
+OUTPUT_DIR: outputs/vgg_ssd300_voc0712
+SOLVER:
+  BATCH_SIZE: 32
+  GAMMA: 0.1
+  LR: 0.001
+  LR_STEPS: [80000, 100000]
+  MAX_ITER: 120000
+  MOMENTUM: 0.9
+  WARMUP_FACTOR: 0.3333333333333333
+  WARMUP_ITERS: 500
+  WEIGHT_DECAY: 0.0005
+TEST:
+  BATCH_SIZE: 10
+  CONFIDENCE_THRESHOLD: 0.01
+  MAX_PER_CLASS: -1
+  MAX_PER_IMAGE: 100
+  NMS_THRESHOLD: 0.45
+2024-08-07 15:23:49,499 SSD.inference INFO: Loading checkpoint from /home/sslunder18/pretrained/vgg_ssd300_voc0712.pth
+2024-08-07 15:23:49,593 SSD.inference INFO: Evaluating voc_2007_test dataset(4952 images):
+2024-08-07 15:24:21,178 SSD.inference INFO: mAP: 0.7771
+aeroplane       : 0.8116
+bicycle         : 0.8327
+bird            : 0.7570
+boat            : 0.7165
+bottle          : 0.5023
+bus             : 0.8578
+car             : 0.8644
+cat             : 0.8798
+chair           : 0.6185
+cow             : 0.8213
+diningtable     : 0.7704
+dog             : 0.8521
+horse           : 0.8746
+motorbike       : 0.8467
+person          : 0.7929
+pottedplant     : 0.5145
+sheep           : 0.7886
+sofa            : 0.8027
+train           : 0.8665
+tvmonitor       : 0.7706
+
